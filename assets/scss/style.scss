@@ -1,0 +1,381 @@
+@import 'base/variable';
+@import 'function/function';
+@import 'base/mixin';
+@import 'base/commons';
+@import 'keyframe/keyframe';
+@import 'custom/custom';
+@import 'base/node_modules/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+html
+{
+	font-size: 14px;
+}
+body
+{
+	font-family: 'Montserrat', sans-serif !important;
+}
+.web-pagination
+{
+	a
+	{
+		text-decoration: none;
+		color: rgba(105, 105, 105, 1);
+	}
+	&__previous, &__next, &__page
+	{
+		padding: 3px 10px;
+	}
+	&__page
+	{
+		background: #FFFFFF;
+		border: 1px solid #D9D9D9;
+		&.active
+		{
+			color: $primary-color;
+			pointer-events: none;
+		}
+	}
+}
+.header
+{
+	&-searchform
+	{
+		min-height: 35px;
+	}
+	ul.menu
+	{
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		li
+		{
+			a
+			{
+				display: block;
+				text-decoration: none;
+				color: $white;
+				&:hover
+				{
+					font-weight: 600;
+					@include background();
+				}
+			}
+		}
+	}
+}
+.main
+{
+	.events
+	{
+		.tabs-list-event
+		{
+			.nav-item
+			{
+				.nav-link-custom
+				{
+					border: none;
+					&.active
+					{
+						border-bottom: 1px solid $primary-color;
+					}
+				}
+			}
+		}
+		&.course-event-tabs
+		{
+			.tabs-list-event
+			{
+				.nav-item
+				{
+					.nav-link-custom
+					{
+						border: none;
+						&.active
+						{
+							color: rgba(197, 63, 63, 1);
+							border-bottom: 1px solid;
+						}
+					}
+				}
+			}
+		}
+		&__list
+		{
+			th, td 
+			{
+				padding: rem(38) 0;
+			}
+			tr:last-child
+			{
+				border-bottom-color: transparent;
+			}
+		}
+	}
+	.media-center
+	{
+		&__list
+		{
+			display: grid;
+			grid-template-areas:
+			'item-1 item-3 item-4 item-4'
+			'item-2 item-3 item-4 item-4'
+			'item-5 item-5 item-6 item-7'
+			'item-5 item-5 item-6 item-8';
+			grid-gap: 3px;
+			background-color: #000;
+			padding: 2px;
+			&>.item
+			{
+				background-color: rgba(255, 255, 255, 0.8);
+				text-align: center;
+				padding: 15px 0;
+			}
+			.item-1
+			{
+				grid-area: item-1;
+			}
+			.item-2
+			{
+				grid-area: item-2;
+			}
+			.item-3
+			{
+				grid-area: item-3;
+			}
+			.item-4
+			{
+				grid-area: item-4;
+			}
+			.item-5
+			{
+				grid-area: item-5;
+			}
+			.item-6
+			{
+				grid-area: item-6;
+			}
+			.item-7
+			{
+				grid-area: item-7;
+			}
+			.item-8
+			{
+				grid-area: item-8;
+			}
+		}
+	}
+	.register-event
+	{
+		._label, ._input
+		{
+			display: block;
+			padding: rem(15px) 0;
+			border: 2px solid $second-color;
+			@extend .rounded-10;
+		}
+		._label
+		{
+			background: $second-color;
+			border-top-right-radius: 0px;
+			border-bottom-right-radius: 0px;
+		}
+		._input
+		{
+			border-top-left-radius: 0px;
+			border-bottom-left-radius: 0px;
+			&:focus
+			{
+				outline: none;
+			}
+		}
+	}
+	.testimontials
+	{
+		&__slider
+		{
+			._slider
+			{
+				background: white;
+				filter: drop-shadow(0 0 0.75rem rgba(190,190,190,1));
+				&::after
+				{
+					@include pseudoElement();
+					bottom: rem(-40);
+					left: 0;
+					width: 0;
+					height: 0;
+					border: rem(40) solid transparent;
+					border-left-color: white;
+				}
+				.testimontials__slide
+				{
+					position: absolute;
+					visibility: hidden;
+					opacity: 0;
+					transition: 1s opacity, visibility ease;
+					&.active
+					{
+						position: relative;
+						opacity: 1;
+						visibility: visible;
+					}
+				}
+			}
+			._navigation
+			{
+				margin-top: rem(50);
+				._item
+				{
+					padding: 5px;
+					background: $white;
+					border: 1px solid $primary-color;
+					display: inline-block;
+					border-radius: 999px;
+					&:not(:first-child)
+					{
+						margin-left: 3px;
+					}
+					&.active
+					{
+						background: $primary-color;
+					}
+				}
+			}
+		}
+	}
+	.member-benefit
+	{
+		._component
+		{
+			&:hover
+			{
+				@include shadow($blur: 46px, $color: rgba(0,0,0,.5));
+			}
+		}
+	}
+	.course-event
+	{
+		&__component
+		{
+			&:hover
+			{
+				@include shadow($blur: 50px, $color:  rgba(0,0,0,.2));
+			}
+		}
+		&__regis
+		{
+			._left-side
+			{
+				._content
+				{
+					top: 20%;
+					left: 0;
+				}
+			}
+			._right-side
+			{
+				.course-event__regis-form
+				{
+					._input
+					{
+						color: $white;
+						background: rgba(112, 158, 51, 1);
+						&::placeholder
+						{
+							color: rgba(235, 235, 235, 1);
+						}
+					}
+					._password-input__wrapper
+					{
+						._eye-icon
+						{
+							right: 5%;
+							font-size: 1.5rem;
+							top: 50%;
+							transform: translateY(-50%);
+						}
+					}
+				}
+			}
+		}
+	}
+	.donate
+	{
+		&__wrapper
+		{
+			font-size: 1.2rem;
+		}
+		&__main
+		{
+			border: 5px solid $second-color;
+		}
+	}
+	.QA
+	{
+		&__quest
+		{
+			&__title, &__content ._title
+			{
+				font-size:  1.4rem;
+			}
+			&__content ._content
+			{
+				font-size: 1.125rem;
+			}
+			&__content
+			{
+				display: none;	
+			}
+			&__title
+			{
+				._extend
+				{	
+					top: 50%;
+					right:  3%;
+					transform: translateY(-50%);
+					._hide
+					{
+						display: none;
+					}
+					._show
+					{
+						display: inline;
+					}
+					&.active
+					{
+						._show
+						{
+							display: none;
+						}
+						._hide
+						{
+							display: inline;
+						}
+					}
+				}
+			}
+		}
+		.form-qa
+		{
+			background-color: #c4c4c4;
+			._input
+			{
+				&::placeholder
+				{
+					color: $primary-color;
+				}
+			}
+		}
+	}
+	.topic
+	{
+		&__slide
+		{
+			._read-more
+			{
+				left: 2%;
+				bottom: 2%;
+			}
+		}
+	}
+}
