@@ -1,0 +1,129 @@
+@import '../base/variable';
+@import '../base/commons';
+@import '../function/function';
+@import '../base';
+@import '../base/mixin';
+@include media-breakpoint-up(lg)
+{
+	.header
+	{
+		&-logo
+		{
+			._img
+			{
+				height: 49px;
+			}
+		}
+		ul
+		{
+			display: flex;
+			align-items: center;
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			li
+			{
+				a
+				{
+					padding: rem(21) rem(15);
+				}
+			}
+		}
+	}
+	.main
+	{
+		.advisers
+		{
+			position: relative;
+			._titles
+			{
+				position: absolute;
+			}
+		}
+		.course-event
+		{
+			&__component
+			{
+				._left-content
+				{
+					._times-up
+					{
+						bottom: 20%;
+						left: -30px;
+					}
+					._regis-button
+					{
+						right: 0;
+						bottom: 0;
+					}
+				}
+
+			}
+			&__regis
+			{
+				._left-side
+				{
+					margin-left: 10%;
+					._content
+					{
+						padding-right: 50%;
+					}
+				}
+				._right-side
+				{
+					border-radius: 10px;
+					margin-left: -18%;
+					margin-top: 5%;
+					position: relative;
+				}
+			}
+		}
+		.donate
+		{
+			&__wrapper
+			{
+				font-size: 2rem;
+			}
+			&__main
+			{
+				border: 5px solid $second-color;
+				margin-top: rem(-190);
+			}
+		}
+		.topic
+		{
+			&__swiper
+			{
+				margin-top:	-10%;
+			}
+		}
+	}
+	.footer
+	{
+		background-repeat: repeat-x;
+		background-size: contain;
+	}
+}
+@include media-breakpoint-only(lg)
+{
+	.header
+	{
+		&-rightside
+		{
+			position: relative;
+		}
+		&-searchform
+		{
+			position: absolute;
+			bottom: calc(-35px - 5px);
+			left: calc(-35*5px);
+			background: #bebebe;
+			visibility: hidden;
+			z-index: 999;
+			&.active
+			{
+				visibility: visible;
+			}			
+		}
+	}
+}

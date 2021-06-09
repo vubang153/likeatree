@@ -1,0 +1,73 @@
+.swiper-container {
+    width: 100%;
+}
+.swiper-pagination-bullets .swiper-pagination-bullet-active
+{   
+    background: $white;
+}
+.swiper-button-next::after, .swiper-button-prev::after
+{
+    font-size: 1rem !important;
+    color: $white;
+}
+.main-slider .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.topic__swiper
+{
+    .swiper-slider, .swiper-wrapper
+    {
+        height: auto;
+    }
+}
+.course-event-slider
+{
+    .swiper-wrapper
+    {
+        height: auto;
+    }
+    .swiper-slide {
+        background-position: center;
+        background-size: cover;
+        width: 300px;
+        height: 300px;
+    }
+    .swiper-slide img {
+        display: block;
+        width: 100%;
+    }
+    .swiper-button-next, .swiper-button-prev
+    {
+        height: auto;
+        width: auto;
+        background: $third-color;
+        padding: rem(10) rem(13);
+    }
+
+}
+@include media-breakpoint-up(lg)
+{   
+    .main-slider.swiper-container
+    {
+        height: 400px;
+    }
+    .looking-for {
+        .swiper-container {
+            width: 100%;
+        }
+        .swiper-slide-next {
+            @include shadow($blur: 30px, $hoz:0, $ver:0,$color: rgba(0,0,0,.3));
+            border-radius: 10px;
+        }
+    }
+}
+@include media-breakpoint-down(lg)
+{
+    .main-slider.swiper-container
+    {
+        height: 250px;
+    }
+}
